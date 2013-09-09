@@ -1,8 +1,13 @@
 <h3><%= Spree.t(:my_wishlists) %></h3>
-<ul>
+<%= "No wishlists" unless @wishlists.length %>
+<%= content_tag :ul do %>
+  <%= render "wishlist", :collection => @wishlists || "No wishlists" %>
+<% end %>
+
+<!-- <ul>
 <% @user.wishlists.each do |wl| %>
   <% if !wl.is_private? || @user == spree_current_user %>
   <li><%= link_to wl.name, wl %></li>
   <% end -%>
 <% end -%>
-</ul>
+</ul> -->
